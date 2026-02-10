@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>10 cosas que me gustan de ti</title>
+
+<link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+
+<div class="contenedor">
+
+```
+<h1>cada vez que creas que no estoy enamorado de ti, mira esto💗</h1>
+<p class="sub">Presiona el botón</p>
+
+<div class="tarjeta">
+
+    <img id="imagen" src="img1.jpg">
+
+    <div id="texto"></div>
+
+</div>
+
+<button onclick="mostrar()">Descúbrelo</button>
+
+<!-- PANTALLA FINAL -->
+  <div id="final" class="oculto"> 
+    <div class="corazon">
+    <span class="letra">C</span>
+</div>
+
+    <p class="mensajeFinal">Esto es solo una pequeña muestra<br>
+        de lo que me gustas 💗</p> </div>
+</div>
+<audio id="musica" src="cancion.mp3"></audio>
+
+<script>
+let lista = [
+"Tus ojos",
+"tus tatuajes, los besaria cada uno",
+"Como amas los atardeceres",
+"Como amas los animales",
+"La musica que escuchas",
+"Que contigo puedo ser yo mismo",
+"las zonas verdes",
+"La manera en que ves todas las flores, el amor que les tienes a ellas es el amor que te tengo a ti",
+"No se si sigas escuchando, pero recuerdo que amabas escuchar a Lana del Rey",
+"Tu arte, no encontre fotos de tus cuadros, pero tenia este recuerdo❤️"
+];
+
+let numero = 0;
+let yaInicio = false;
+function mostrar(){
+const musica = document.getElementById("musica"); 
+// ▶ iniciar música SOLO en el primer click 
+if(!yaInicio)
+{ musica.volume = 0.6; musica.play(); yaInicio = true; }
+
+if(numero < lista.length){
+
+    document.getElementById("texto").innerHTML = (numero+1)+". "+lista[numero];
+    document.getElementById("imagen").src = "img/" + (numero+1) + ".jpg";
+
+    numero++;
+
+}else{
+
+    // OCULTAR TODO
+    document.querySelector(".tarjeta").style.display = "none";
+    document.querySelector("button").style.display = "none";
+    document.querySelector("h1").style.display = "none";
+    document.querySelector(".sub").style.display = "none";
+
+    // MOSTRAR EL CORAZÓN
+    document.getElementById("final").classList.remove("oculto");
+}
+}
+</script>
+
+</body>
+</html>
